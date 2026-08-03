@@ -1,0 +1,22 @@
+CÓMO AGREGAR FOTOS A LA GALERÍA
+================================
+
+1. Sube tus fotos a esta carpeta (galeria/).
+
+2. Nómbralas con números seguidos, empezando en 1:
+        1.jpg
+        2.jpg
+        3.jpg
+        4.jpg
+        ...
+
+   - No dejes huecos (si tienes 1 y 3 pero no 2, se cortará en la 1).
+   - Puedes usar .jpg, .jpeg, .png o .webp.
+
+3. ¡Listo! La página las mostrará solas, en orden, sin tocar código.
+
+CONSEJO: fotos cuadradas o verticales se ven mejor (la galería usa
+formato 4:5). Un tamaño de ~1200 px de ancho es más que suficiente
+y hace que el sitio cargue rápido.
+
+Puedes borrar este archivo cuando quieras.

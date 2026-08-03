@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio 003 · Retratos al óleo personalizados</title>
+<meta name="description" content="Retratos únicos al óleo, hechos a mano a partir de tus fotografías. La mejor parte de tu historia, en un cuadro.">
+
+<!-- ============================================================
+     FUENTES
+============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   PALETA DE LA MARCA
+============================================================ */
+:root{
+  --verde:      #1f6b52;   /* verde profundo del logo */
+  --verde-osc:  #17553f;
+  --crema:      #f7f1e0;   /* fondo crema */
+  --crema-2:    #fdf8ec;
+  --amarillo:   #f5efb4;   /* amarillo/crema del logo */
+  --oliva:      #5c8a3c;   /* verde script */
+  --azul:       #7d9fd6;   /* azul de la sección cotización */
+  --azul-osc:   #5f83c0;
+  --tinta:      #23372e;
+  --sombra:     rgba(23,55,63,.14);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',system-ui,sans-serif;
+  color:var(--tinta);
+  background:var(--crema);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* marca / logo texto */
+.brand{
+  font-family:'Fredoka',sans-serif;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+
+/* ============================================================
+   NAV
+============================================================ */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(31,107,82,.96);
+  backdrop-filter:blur(8px);
+  color:var(--amarillo);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav .logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.5rem;color:var(--amarillo);text-decoration:none;display:flex;align-items:baseline;gap:2px}
+.nav .logo sup{font-size:.55em;letter-spacing:.15em;font-weight:600;line-height:1}
+.nav nav{display:flex;gap:26px}
+.nav nav a{color:var(--amarillo);text-decoration:none;font-weight:600;font-size:.98rem;opacity:.88;transition:opacity .2s}
+.nav nav a:hover{opacity:1}
+@media(max-width:640px){.nav nav{gap:16px;font-size:.85rem}.nav nav a{font-size:.85rem}}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{
+  background:var(--verde);
+  color:var(--amarillo);
+  text-align:center;
+  padding:96px 24px 108px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{ /* textura sutil */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:22px 22px;opacity:.5;
+}
+.hero-logo{
+  font-family:'Fredoka',sans-serif;font-weight:700;
+  font-size:clamp(4rem,15vw,9rem);line-height:.9;
+  color:var(--amarillo);
+  display:inline-flex;align-items:flex-start;gap:.08em;
+}
+.hero-logo .num{font-size:.16em;line-height:1.05;letter-spacing:.2em;margin-top:.55em;text-align:left}
+.hero-logo .num span{display:block}
+.hero-tag{
+  font-family:'Nunito',sans-serif;font-weight:500;
+  font-size:clamp(1.05rem,2.6vw,1.5rem);
+  color:#e9e5c8;margin-top:14px;opacity:.92;
+}
+.hero-btns{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* botones */
+.btn{
+  font-family:'Fredoka',sans-serif;font-weight:600;
+  font-size:1.02rem;
+  padding:14px 30px;border-radius:40px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:9px;
+  cursor:pointer;border:none;transition:transform .18s ease, box-shadow .18s ease, background .18s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-amarillo{background:var(--amarillo);color:var(--verde-osc);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn-amarillo:hover{background:#fbf6c6}
+.btn-outline{background:transparent;color:var(--amarillo);border:2px solid var(--amarillo)}
+.btn-outline:hover{background:rgba(245,239,180,.12)}
+.btn-verde{background:var(--verde);color:var(--amarillo);box-shadow:0 8px 20px var(--sombra)}
+.btn-verde:hover{background:var(--verde-osc)}
+.btn-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;box-shadow:0 8px 22px rgba(188,24,136,.28)}
+
+/* ============================================================
+   INTRO
+============================================================ */
+.intro{background:var(--crema-2);padding:82px 24px}
+.intro-inner{max-width:820px;margin:0 auto;text-align:center}
+.script{
+  font-family:'Caveat',cursive;color:var(--oliva);
+  font-weight:700;line-height:1.05;
+  font-size:clamp(2.6rem,7vw,4.4rem);
+}
+.intro p{color:#4a6b52;font-size:clamp(1.02rem,2.2vw,1.2rem);margin-top:22px}
+.intro .lead{font-weight:700;color:var(--verde);margin-top:26px}
+.sparkle{color:var(--oliva);font-size:1.4em;vertical-align:middle}
+
+/* ============================================================
+   GALERÍA
+============================================================ */
+.galeria{padding:82px 24px;background:var(--crema)}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 48px}
+.sec-head h2{font-family:'Fredoka',sans-serif;font-weight:700;color:var(--verde);font-size:clamp(2rem,5vw,2.9rem);line-height:1.1}
+.sec-head p{color:#5c7a66;margin-top:12px;font-size:1.05rem}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:18px;
+}
+.card{
+  position:relative;border-radius:18px;overflow:hidden;
+  background:var(--amarillo);
+  box-shadow:0 10px 26px var(--sombra);
+  aspect-ratio:4/5;cursor:pointer;
+  transition:transform .22s ease, box-shadow .22s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(23,55,63,.22)}
+.card img{width:100%;height:100%;object-fit:cover}
+/* placeholder */
+.card.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--verde);background:
+  repeating-linear-gradient(135deg,#f7efb0 0 14px,#f2e99c 14px 28px);cursor:default}
+.card.ph .pico{font-size:2.4rem;opacity:.55}
+.card.ph small{font-family:'Fredoka',sans-serif;font-weight:500;margin-top:8px;opacity:.65;font-size:.9rem}
+
+.galeria-note{text-align:center;color:#7d9481;margin-top:34px;font-size:.95rem}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(23,55,63,.9);display:none;align-items:center;justify-content:center;z-index:100;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb .close{position:absolute;top:22px;right:26px;color:#fff;font-size:2.4rem;cursor:pointer;font-family:'Fredoka',sans-serif;line-height:1}
+
+/* ============================================================
+   COTIZACIÓN
+============================================================ */
+.cotiza{background:var(--azul);color:#fff;padding:86px 24px}
+.cotiza .brand-mini{text-align:center;font-family:'Fredoka',sans-serif;font-weight:700;font-size:2.6rem;color:var(--amarillo);display:inline-flex;gap:2px;align-items:flex-start;justify-content:center}
+.cotiza .brand-mini .num{font-size:.28em;letter-spacing:.15em;margin-top:.4em;text-align:left}
+.cotiza .brand-mini .num span{display:block;line-height:1.05}
+.cotiza-head{text-align:center;margin-bottom:46px}
+.cotiza-head h2{font-family:'Fredoka',sans-serif;font-weight:600;font-size:clamp(1.7rem,4.5vw,2.4rem);margin-top:10px}
+
+.pasos{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:760px){.pasos{grid-template-columns:1fr}}
+.paso{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:26px 22px}
+.paso .n{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.5rem;background:var(--amarillo);color:var(--azul-osc);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.paso h3{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.15rem;margin-bottom:8px}
+.paso p{font-size:.98rem;opacity:.95}
+
+/* tamaños */
+.tamanos{max-width:900px;margin:40px auto 0;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.tam{font-family:'Fredoka',sans-serif;font-weight:600;background:var(--amarillo);color:var(--azul-osc);padding:11px 20px;border-radius:30px;font-size:1rem}
+
+.cotiza-info{max-width:720px;margin:44px auto 0;text-align:center}
+.cotiza-info p{opacity:.96;margin-bottom:10px}
+.cotiza-info .precio{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.3rem;color:var(--amarillo)}
+.cotiza-cta{text-align:center;margin-top:40px}
+.cierre{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);text-align:center;margin-top:52px;color:var(--amarillo)}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer{background:var(--verde-osc);color:var(--amarillo);text-align:center;padding:46px 24px}
+footer .logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.8rem;display:inline-flex;gap:2px;align-items:flex-start}
+footer .logo .num{font-size:.3em;letter-spacing:.15em;margin-top:.4em;text-align:left}
+footer .logo .num span{display:block;line-height:1.05}
+footer p{opacity:.8;margin-top:10px;font-size:.95rem}
+footer .fbtn{margin-top:20px}
+footer .copy{opacity:.55;font-size:.82rem;margin-top:26px}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#inicio" class="logo">Stud!o<sup>003</sup></a>
+    <nav>
+      <a href="#galeria">Galería</a>
+      <a href="#cotiza">Cotización</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-logo">
+      Stud!o
+      <span class="num"><span>0</span><span>0</span><span>3</span></span>
+    </div>
+    <p class="hero-tag">La mejor parte de tu historia, en un cuadro.</p>
+    <div class="hero-btns">
+      <a href="#galeria" class="btn btn-amarillo">Ver la galería</a>
+      <a href="#cotiza" class="btn btn-outline">Cotiza tu retrato</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTRO ===================== -->
+<section class="intro">
+  <div class="intro-inner">
+    <h2 class="script"><span class="sparkle">✦</span> Tu mejor amigo convertido en arte <span class="sparkle">✦</span></h2>
+    <p class="lead">Un pequeño regalo, crea felicidad.</p>
+    <p>Retratos únicos hechos a partir de tus fotografías para recordar y celebrar
+       a quienes dejan huellas imborrables en nuestra vida.</p>
+  </div>
+</section>
+
+<!-- ===================== GALERÍA ===================== -->
+<section class="galeria" id="galeria">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Trabajos realizados</h2>
+      <p>Cada pieza está pintada por completo a mano, al óleo.</p>
+    </div>
+    <div class="grid" id="grid"><!-- las fotos se cargan solas aquí --></div>
+    <p class="galeria-note">✦ Cada obra es única e irrepetible ✦</p>
+  </div>
+</section>
+
+<!-- ===================== COTIZACIÓN ===================== -->
+<section class="cotiza" id="cotiza">
+  <div class="wrap">
+    <div class="cotiza-head">
+      <div class="brand-mini">Stud!o<span class="num"><span>0</span><span>0</span><span>3</span></span></div>
+      <h2>¿Quieres un retrato de tu mejor amigo?</h2>
+    </div>
+
+    <div class="pasos">
+      <div class="paso">
+        <div class="n">1</div>
+        <h3>Elige tu foto</h3>
+        <p>¡El paso más importante! Busca una foto donde se vea su personalidad, con buena iluminación y un ángulo favorecedor.</p>
+      </div>
+      <div class="paso">
+        <div class="n">2</div>
+        <h3>Decide el tamaño</h3>
+        <p>Escoge la medida del retrato que mejor se adapte a tu espacio y a tu presupuesto.</p>
+      </div>
+      <div class="paso">
+        <div class="n">3</div>
+        <h3>Escríbeme</h3>
+        <p>Mándame por Instagram la foto que elegiste y te ayudaré a cotizar tu retrato.</p>
+      </div>
+    </div>
+
+    <div class="tamanos">
+      <span class="tam">30 × 40 cm</span>
+      <span class="tam">40 × 50 cm</span>
+      <span class="tam">50 × 60 cm</span>
+      <span class="tam">60 × 80 cm</span>
+    </div>
+
+    <div class="cotiza-info">
+      <p class="precio">Precios desde Q300</p>
+      <p>El costo puede variar según el tamaño y la complejidad del retrato.</p>
+      <p>Cada pintura se realiza por completo a mano, por lo que el proceso puede tardar entre <strong>3 y 4 semanas</strong>.</p>
+      <p>Para reservar tu espacio se solicita un anticipo del 50%.</p>
+    </div>
+
+    <div class="cotiza-cta">
+      <!-- 🔧 CAMBIA AQUÍ tu usuario de Instagram (el enlace aparece 2 veces: aquí y en el footer) -->
+      <a href="https://instagram.com/studio003" target="_blank" rel="noopener" class="btn btn-ig">
+        📸 Cotiza por Instagram
+      </a>
+    </div>
+
+    <p class="cierre">¡Siempre será un placer trabajar contigo y hacer una obra única!</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="logo">Stud!o<span class="num"><span>0</span><span>0</span><span>3</span></span></div>
+    <p>La mejor parte de tu historia, en un cuadro.</p>
+    <div class="fbtn">
+      <a href="https://instagram.com/studio003" target="_blank" rel="noopener" class="btn btn-amarillo">Síguenos en Instagram</a>
+    </div>
+    <p class="copy">© <span id="year"></span> Studio 003 · Retratos al óleo personalizados</p>
+  </div>
+</footer>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lb" id="lb">
+  <span class="close" id="lbClose">×</span>
+  <img id="lbImg" src="" alt="Retrato">
+</div>
+
+<script>
+/* ============================================================
+   GALERÍA AUTO-CARGABLE
+   ------------------------------------------------------------
+   Solo sube tus fotos a la carpeta  galeria/  con nombres
+   numerados:  1.jpg, 2.jpg, 3.jpg ...  y aparecerán solas.
+   Acepta .jpg, .jpeg, .png y .webp.
+============================================================ */
+(function(){
+  const grid   = document.getElementById('grid');
+  const exts   = ['jpg','jpeg','png','webp'];
+  const MAX    = 60;          // busca hasta 60 fotos
+  const found  = [];
+
+  // intenta cargar galeria/N con las distintas extensiones
+  function tryLoad(n){
+    return new Promise(resolve=>{
+      let i = 0;
+      const attempt = ()=>{
+        if(i >= exts.length){ resolve(null); return; }
+        const url = 'galeria/' + n + '.' + exts[i];
+        const img = new Image();
+        img.onload  = ()=>resolve(url);
+        img.onerror = ()=>{ i++; attempt(); };
+        img.src = url;
+      };
+      attempt();
+    });
+  }
+
+  async function build(){
+    for(let n=1; n<=MAX; n++){
+      const url = await tryLoad(n);
+      if(!url){ if(n>1) break; else continue; } // corta al primer hueco (tras la 1)
+      found.push(url);
+      addCard(url);
+    }
+    if(found.length === 0) showPlaceholders();
+  }
+
+  function addCard(url){
+    const c = document.createElement('div');
+    c.className = 'card';
+    c.innerHTML = '<img src="'+url+'" alt="Retrato al óleo" loading="lazy">';
+    c.addEventListener('click', ()=>openLb(url));
+    grid.appendChild(c);
+  }
+
+  function showPlaceholders(){
+    for(let i=0;i<6;i++){
+      const c = document.createElement('div');
+      c.className = 'card ph';
+      c.innerHTML = '<div class="pico">🖼️</div><small>Próximamente</small>';
+      grid.appendChild(c);
+    }
+  }
+
+  // lightbox
+  const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
+  function openLb(url){ lbImg.src=url; lb.classList.add('open'); }
+  function closeLb(){ lb.classList.remove('open'); }
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{ if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLb(); });
+
+  build();
+
+  // año dinámico en el footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
